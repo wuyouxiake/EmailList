@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <h:head>
+        <meta charset="utf-8" />
+        <title>Murach's Java Servlets and JSP</title>
+        <link rel="stylesheet" href="styles/main.css" type="text/css"/>
+    </h:head>
+    <h:body>
+        <h1>Join our email list</h1>
+        <p>To join our email list, enter your name and
+           email address below.</p>
+        <c:if test="${emailList.message != null}">        
+            <p class="error">#{emailList.message}</p>
+        </c:if>
+        <h:form>
+            <label class="pad_top">Email:</label>
+            <h:inputText id="email" required="true"
+                         value="#{emailList.user.email}"
+                         requiredMessage="An email address is required"/>
+            <h:message showSummary="true" showDetail="false"
+                       for="email" class="error" /><br />
+
+            <label class="pad_top">First Name:</label>
+            <h:inputText id="firstname" required="true"
+                         value="#{emailList.user.firstname}"
+                         requiredMessage="A first name is required"/>
+            <h:message showSummary="true" showDetail="false"
+                       for="firstname" class="error" /><br />
+
+            <label class="pad_top">Last Name:</label>
+            <h:inputText id="lastname" required="true"
+                         value="#{emailList.user.lastname}"
+                         requiredMessage="A last name is required"/>
+            <h:message showSummary="true" showDetail="false"
+                       for="lastname" class="error" /><br />
+                       
+            <label class="pad_top">Birthday:</label>
+            <h:inputText id="birthday" required="true"
+                         value="#{emailList.user.birthday}"
+                         requiredMessage="Birthday is required">
+            <f:convertDateTime pattern="d-M-yyyy" /></h:inputText>
+            <h:message showSummary="true" showDetail="false"
+                       for="birthday" class="error" /><br />
+
+            <label>&nbsp;</label>
+            <h:commandButton id="submit"
+                             action="#{emailList.addToEmailList}"
+                             value="Join Now" class="margin_left"></h:commandButton>
+           
+        </h:form>
+    </h:body>
+</html>

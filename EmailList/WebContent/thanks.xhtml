@@ -1,0 +1,14 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+<ui:composition template="BasicTemplate.xhtml">
+	<ui:define name="content">
+		<h:outputLabel value="You are signed up to our email list #{emailList.user.firstname} #{emailList.user.lastname}"></h:outputLabel><br/>
+		<h:outputLabel value="Your email is #{emailList.user.email}"></h:outputLabel>
+		<h:outputLabel value="Your birthday is #{emailList.user.birthday}"><f:convertDateTime pattern="d-M-yyyy" /></h:outputLabel>
+	</ui:define>
+</ui:composition>
+</html>
